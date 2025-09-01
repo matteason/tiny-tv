@@ -26,6 +26,7 @@ const channels = [
     'https://viamotionhsi.netplus.ch/live/eds/channel4/browser-dash/channel4.mpd',
   ),
   new WebChannel('ISS', 'https://iss.matteason.co.uk'),
+  new WebChannel('OFF', 'about:blank'),
 ]
 
 const currentChannelIndex = ref(0)
