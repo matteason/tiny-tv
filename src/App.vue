@@ -4,9 +4,8 @@ import ChannelChanger from '@/components/ChannelChanger.vue'
 import { computed, ref } from 'vue'
 import { WebChannel } from '@/types/WebChannel.ts'
 import { DashChannel } from '@/types/DashChannel.ts'
-import { ChannelType } from '@/types/Channel.ts'
-import WebChannelPlayer from '@/components/WebChannelPlayer.vue'
-import DashPlayer from '@/components/DashPlayer.vue'
+import { YoutubeChannel } from '@/types/YoutubeChannel.ts'
+import ChannelPlayer from '@/components/ChannelPlayer.vue'
 
 const channels = [
   new DashChannel(
@@ -25,7 +24,8 @@ const channels = [
     'Channel 4',
     'https://viamotionhsi.netplus.ch/live/eds/channel4/browser-dash/channel4.mpd',
   ),
-  new WebChannel('ISS', 'https://iss.matteason.co.uk'),
+  new YoutubeChannel('Retro TV', 'PLzBWNDB86Ovsv82zDtdeKNfdLU39luEW0'),
+  //new WebChannel('ISS', 'https://iss.matteason.co.uk'),
   new WebChannel('OFF', 'about:blank'),
 ]
 
@@ -40,12 +40,7 @@ const currentChannel = computed(() => {
 <template>
   <ChannelChanger v-model="currentChannelIndex" :max-channel-index="channels.length - 1" />
   <Volume v-model="volume" />
-  <WebChannelPlayer v-if="currentChannel.type === ChannelType.Web" :channel="currentChannel" />
-  <DashPlayer
-    v-else-if="currentChannel.type === ChannelType.Dash"
-    :channel="currentChannel"
-    :volume="volume"
-  />
+  <ChannelPlayer :channel="currentChannel" :volume="volume" />
 </template>
 
 <style lang="scss">

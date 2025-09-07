@@ -2,47 +2,47 @@
 const props = defineProps({
   maxChannelIndex: {
     type: Number,
-    required: true
-  }
+    required: true,
+  },
 })
 
-const model = defineModel( { type: Number })
+const model = defineModel({ type: Number })
 
 function channelDown() {
-  if(model.value === 0) {
+  if (model.value === 0) {
     model.value = props.maxChannelIndex
   } else {
     model.value--
   }
-  goFullscreen();
+  goFullscreen()
 }
 
 function channelUp() {
-  if(model.value === props.maxChannelIndex) {
+  if (model.value === props.maxChannelIndex) {
     model.value = 0
   } else {
     model.value++
   }
-  goFullscreen();
+  goFullscreen()
 }
 
 function goFullscreen() {
-  document.getElementById('app').requestFullscreen()
+  //document.getElementById('app').requestFullscreen()
 }
 </script>
 
 <template>
-<div class="tt-channel-changer">
-  <button class="tt-channel-changer--button" @click="channelDown">Channel down</button>
-  <button class="tt-channel-changer--button" @click="channelUp">Channel up</button>
-</div>
+  <div class="tt-channel-changer">
+    <button class="tt-channel-changer--button" @click="channelDown">Channel down</button>
+    <button class="tt-channel-changer--button" @click="channelUp">Channel up</button>
+  </div>
 </template>
 
 <style scoped lang="scss">
 .tt-channel-changer {
   position: absolute;
   inset: 30vh 0 30vh 0;
-  z-index: 100;
+  z-index: 1000;
   display: flex;
 
   &--button {
