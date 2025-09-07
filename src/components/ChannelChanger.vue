@@ -27,7 +27,7 @@ function channelUp() {
 }
 
 function goFullscreen() {
-  //document.getElementById('app').requestFullscreen()
+  document.getElementById('app').requestFullscreen()
 }
 </script>
 
