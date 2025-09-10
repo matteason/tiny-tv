@@ -123,16 +123,6 @@ $player-padding: 0px;
     width: 100%;
     object-fit: cover;
     filter: blur(1px) saturate(150%) hue-rotate(5deg);
-
-    &--glow {
-      filter: blur(5px) saturate(150%) hue-rotate(20deg);
-      opacity: 0.5;
-      mix-blend-mode: lighten;
-    }
-  }
-
-  &--glow::before {
-    content: none;
   }
 
   &--static {

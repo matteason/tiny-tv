@@ -1,12 +1,18 @@
 <script setup lang="ts">
 import type { PropType } from 'vue'
 import type { WebChannel } from '@/types/WebChannel.ts'
+import { onMounted } from 'vue'
 
 const props = defineProps({
   channel: {
     type: Object as PropType<WebChannel>,
     required: true,
   },
+})
+const emit = defineEmits(['loaded'])
+
+onMounted(() => {
+  emit('loaded')
 })
 </script>
 
