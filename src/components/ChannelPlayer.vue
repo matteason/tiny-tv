@@ -75,6 +75,7 @@ function onLoaded() {
     ></component>
     <div class="tt-player tt-player--static" :class="{ 'tt-player--static--overlay': !showStatic }">
       <video
+        v-if="channel.name !== 'OFF'"
         class="tt-player__video tt-player__video--static"
         src="/static.mp4"
         autoplay
